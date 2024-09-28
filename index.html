@@ -3,14 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connect Wallet</title>
+  <title>Advanced Connect Wallet</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Additional animations and styles */
+    .connect-wallet-btn {
+      background-size: 200% 200%;
+      transition: background-position 0.5s, box-shadow 0.3s ease-in-out;
+    }
+    .connect-wallet-btn:hover {
+      background-position: right center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+    .loading-spinner {
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body class="bg-gray-900 flex justify-center items-center min-h-screen">
   <div class="text-center">
-    <button id="connectWalletBtn" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
-      Connect Wallet
+    <!-- Connect Wallet Button -->
+    <button id="connectWalletBtn" class="connect-wallet-btn bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:from-purple-600 hover:to-pink-600 focus:outline-none">
+      <span id="buttonText">Connect Wallet</span>
+      <div id="spinner" class="hidden ml-2 w-4 h-4 border-2 border-white border-solid rounded-full loading-spinner inline-block"></div>
     </button>
+    
+    <!-- Wallet Address Display -->
     <p id="walletAddress" class="text-gray-300 mt-4"></p>
   </div>
 
